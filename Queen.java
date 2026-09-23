@@ -1,4 +1,4 @@
-public class Queen extends Chesspiece{
+public class Queen extends Rook{
 
     public Queen() {
     }
