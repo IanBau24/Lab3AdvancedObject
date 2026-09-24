@@ -1,3 +1,13 @@
+/**
+ * Holds the withinChessboard method to check the bounds of any given coordinate
+ * 
+ * @author Ian Bautista Ambriz
+ * @version 1.0.0
+ * @since 2026-09-22
+ * 
+ * Change Log:
+ * 2026-09-22 - Set up class reusing the code from lab 2
+ */
 public class Chessboard {
     // * copied the code from the previous lab since functionality should be same
 

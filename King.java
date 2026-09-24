@@ -1,4 +1,6 @@
-public class King extends Chesspiece{
+
+// per lab specification king extends from queen
+public class King extends Queen{
 
     public King() {
     }

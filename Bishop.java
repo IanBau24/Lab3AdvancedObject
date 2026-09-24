@@ -18,16 +18,16 @@ public class Bishop extends Chesspiece{
         this.posY = 1;
     }
 
-    Bishop(String pieceName, String color, char col, int row){
+    public Bishop(String pieceName, String color, char col, int row){
         this.pieceName = pieceName;
         this.color = color;
         this.posX = col;
         this.posY = row;
     }
     
-    @Override 
+    @Override
     public boolean isValid(char newPosX, int newPosY){
-        // see about using enumns to permform the x check
+        //? see about using enumns to permform the x check
         int x_diff = Math.abs(this.posX - newPosX);
         int y_diff = Math.abs(this.posY - newPosY);
         // bishop logic checks if the piece moved the same distance along the x and y positons, or a diagonal
