@@ -22,4 +22,10 @@ public class Chessboard {
         // col has char comparisson, row uses the constants
 		return ((col<=MAX_COL && col>=MIN_COL) && (row>=MIN_ROW && row<=MAX_ROW));
     }
+
+    // returns true if two coordiantes are the same position, used to check if pieces remain in the same place
+    public static boolean samePosition(char col, int row, char newCol, int newRow){
+        // return true only if both row and column are the same
+        return (col == newCol && row == newRow);
+    }
 }

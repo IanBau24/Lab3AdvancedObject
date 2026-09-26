@@ -3,7 +3,7 @@
  * 
  * @author Ian Bautista Ambriz
  * @version 1.0.0
- * @since 2026-09-14
+ * @since 2026-09-19
  * 
  * Change Log:
  * 2026-09-19 - Set up bishop class skeleton
@@ -19,10 +19,7 @@ public class Bishop extends Chesspiece{
     }
 
     public Bishop(String pieceName, String color, char col, int row){
-        this.pieceName = pieceName;
-        this.color = color;
-        this.posX = col;
-        this.posY = row;
+        super(pieceName, color, col, row); // call chesspiece constructor and fill out fields from there
     }
     
     @Override

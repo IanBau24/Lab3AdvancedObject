@@ -19,6 +19,14 @@ abstract class Chesspiece {
     public Chesspiece() {
     }
 
+
+    public Chesspiece(String pieceName, String color, char col, int row){
+        this.pieceName = pieceName;
+        this.color = color;
+        this.posX = col;
+        this.posY = row;
+    }
+
     // let me know if this is how we are supposed to inherit all the setters and getters
     public String getPieceName(){
         return this.pieceName;
@@ -30,6 +38,10 @@ abstract class Chesspiece {
 
     public int getRow(){
         return this.posY;
+    }
+
+    public String getColor(){
+        return this.color;
     }
 
     public void setColumn(char posX){
