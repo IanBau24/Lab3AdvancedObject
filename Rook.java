@@ -1,3 +1,11 @@
+/**
+ * Represents a Rook chess piece.
+ * Inherits from Chesspiece class
+ * @author Ismael Renova
+ * @version 1.0.0
+ * @since 2026-09-26
+ * @updates: 2026-09-26 Updated Rook skeleton and filled it out.
+ */
 public class Rook extends Chesspiece{
 
     public Rook() {
