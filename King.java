@@ -7,6 +7,8 @@
  * @author Ismael Renova
  * @version 1.0.0
  * @since 22026-09-26
+ * Updates: 2026-09-19 King Skeleton
+ *          2026-09-26 Updated King skeleton and inhertiance
  */
 public class King extends Queen{
     /**
@@ -27,7 +29,7 @@ public class King extends Queen{
      */
 
     public King(String pieceName, String color, char posX, int posY){
-        super(pieceName, color, posX, posY); //Grabs the constructor and fills it out
+        super(pieceName, color, posX, posY); //Grabs the chesspiece constructor and fills it out
     }
     @Override
     public boolean isValid(char newPosX, int newPosY){
