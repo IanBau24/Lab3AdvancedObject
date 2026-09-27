@@ -17,7 +17,7 @@ public class Knight extends Chesspiece{
      * @param posY row position 
      */
     public Knight(String pieceName, String color, char posX, int posY){
-        super(pieceName, color, posX, posY); //Grabs the constructor and fills it out.
+        super(pieceName, color, posX, posY); //Grabs the chesspiece constructor and fills it out.
     }
     //Overrides the isValid method from chesspiece class
     @Override
