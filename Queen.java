@@ -32,7 +32,7 @@ public class Queen extends Rook{
     public Queen (String pieceName, String color, char posX, int posY){
         super(pieceName, color, posX, posY); //Gets the constructors from chesspieces and fills it out.
     }
-    //Checks rooks method and replacec with queen signature.
+    //Checks Rooks isValid and overrides it with Queens isValid method
     @Override
     public boolean isValid(char newPosX, int newPosY){
         // enums on column to check
