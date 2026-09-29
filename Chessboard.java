@@ -1,12 +1,13 @@
 /**
  * Holds the withinChessboard method to check the bounds of any given coordinate
  * 
- * @author Ian Bautista Ambriz
+ * @author Ian Bautista Ambriz & Ricardo Carranza
  * @version 1.0.0
  * @since 2026-09-22
  * 
  * Change Log:
  * 2026-09-22 - Set up class reusing the code from lab 2
+ * Refactor Chessboard to use Enums for columns
  */
 public class Chessboard {
     // * copied the code from the previous lab since functionality should be same
