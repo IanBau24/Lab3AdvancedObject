@@ -36,6 +36,6 @@ public class King extends Queen{
         int x_diff = Math.abs(this.posX - newPosX);
         int y_diff = Math.abs(this.posY - newPosY);
 
-        return (x_diff <= 1 && y_diff <= 1) // Checks if adjacent spots are open to reposition.
+        return (x_diff <= 1 && y_diff <= 1); // Checks if adjacent spots are open to reposition.
     }
 }

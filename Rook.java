@@ -16,7 +16,7 @@ public class Rook extends Chesspiece{
     }
 
     public Rook(String pieceName, String color, char posX, int posY){
-        super(pieceName, color, col, row); //call chesspiece constructor and fills it out from there
+        super(pieceName, color, posX, posY); //call chesspiece constructor and fills it out from there
     }
     /**
      * Checks whether the Rook can move to the target position.
@@ -29,9 +29,7 @@ public class Rook extends Chesspiece{
      */
     @Override
     public boolean isValid(char newPosx, int newPosY){
-        int x_diff = Math.abs(this.posX - newPosX);
-        int y_diff = Math.abs(this.posX - newPosY);
 
-        return (this.posX == newPosX || this.poxY == newPosY); // Checks if the rook only moves one direction
+        return (this.posX == newPosx || this.posY == newPosY); // Checks if the rook only moves one direction
     }
 }

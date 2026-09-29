@@ -1,0 +1,12 @@
+Bishop.class
+Chessboard.class
+Chesspiece.class
+Enums.class
+Enums$locationX.class
+Enums$PieceType.class
+King.class
+Knight.class
+Pawn.class
+Queen.class
+Rook.class
+Runner.class

@@ -18,7 +18,7 @@ public class Queen extends Rook{
         this.pieceName = "QUEEN";
         this.color = "WHITE";
         this.posX = 'a';
-        this.poxY = 1;
+        this.posY = 1;
     }
     
     /**
