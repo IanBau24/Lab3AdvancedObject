@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Holds the chess piece object, constructor, attributes, setters and getters, valid check
  * 
- * @author Ian Bautista Ambriz
+ * @author Ian Bautista Ambriz & Ricardo Carranza
  * @version 1.0.0
  * @since 2026-09-19
  * 
@@ -11,6 +11,7 @@ import java.util.Scanner;
  * 2026-09-19 - Set up class and did skeleton
  * 2026-09-22 - Worked on simple implementations without error handling
  * 2026-09-28 - Finished error handling and looping
+ * 2026-09-29 - Refactor Runner.java for improved input handling. Added functionality for enumerated column positions and prohibiting user from repeating chesspiece types..
  */
 public class Runner{
     public static void readUser(){
@@ -24,7 +25,8 @@ public class Runner{
             Enums.PieceType piece = null;
 
             // use enum to verify user input
-            while (piece == null){
+            boolean repeatedPiece= true;
+            while (piece == null || repeatedPiece){
                 System.out.println("Enter chess piece " + (i + 1) + "/6. PAWN,ROOK,KNIGHT etc.");
 
                 try {
@@ -32,6 +34,15 @@ public class Runner{
                     piece = Enums.PieceType.valueOf(scan.nextLine().trim().toUpperCase());
                 } catch (IllegalArgumentException e) {
                     System.out.println("Not valid chess piece, try again");
+                }
+                // makes sure pieces don't repeat.
+                repeatedPiece=false;
+                for (int j = 0; j < i; j++){
+                    if (piece!=null && array[j].getPieceName().toUpperCase()==piece.name()){
+                        repeatedPiece=true;
+                        System.out.println("You have already included the " + piece.name().toLowerCase() + " chess piece. Please select another piece you have not selected already.");
+                        break;
+                    }
                 }
             }
 
@@ -49,12 +60,17 @@ public class Runner{
             }
 
             // ask for a starting position, keep looping until it is actually on the board
-            char startCol = 0;
+            Enums.LocationX startCol = null;
             int startRow = 0;
             boolean validStart = false;
             while (!validStart){
                 System.out.println("Enter starting column (a-h):");
-                startCol = scan.nextLine().trim().toLowerCase().charAt(0);
+                try {
+                    // save cleaned input to piece type using enums for the piece type format
+                    startCol = Enums.LocationX.valueOf(scan.nextLine().trim().toUpperCase());
+                } catch (IllegalArgumentException e) {
+                    
+                }
 
                 System.out.println("Enter starting row (1-8):");
                 try {
@@ -94,52 +110,50 @@ public class Runner{
                     break;
             }
 
-            System.out.println("Sucess done piece " + (i + 1));
+            System.out.println("Sucessfully created piece " + (i + 1));
         }
 
-        // now that all 6 pieces exist, ask for a target position for each one and validate move
+        // now that all 6 pieces exist, ask for a target position and validate move for each piece
+        Enums.LocationX targetCol = null;
+        int targetRow = 0;
+        boolean validTarget = false;
+        while (!validTarget){
+            // loop over until a valid target is input
+            System.out.println("Enter target column (a-h):");
+            try {
+                // save cleaned input to piece type using enums for the piece type format
+                targetCol = Enums.LocationX.valueOf(scan.nextLine().trim().toUpperCase());
+            } catch (IllegalArgumentException e) {
+                
+            }
+
+            System.out.println("Enter target row (1-8):");
+            try {
+                targetRow = Integer.parseInt(scan.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Row must be a number, try again");
+                continue;
+            }
+
+            // reuse within chessboard method
+            validTarget = Chessboard.withinChessboard(targetCol, targetRow);
+            if (!validTarget){
+                System.out.println("That position is off the board, try again");
+            }
+        }
         for (int i = 0; i < array.length; i++){
             Chesspiece current = array[i];
 
-            // use piece getters to call formatted string
-            System.out.println("\nPiece " + (i + 1) + ": " + current.getPieceName() + " at " + current.getColumn() + current.getRow());
-
-            char targetCol = 0;
-            int targetRow = 0;
-            boolean validTarget = false;
-            while (!validTarget){
-                // loop uover until a valid target is input
-                System.out.println("Enter target column (a-h):");
-                targetCol = scan.nextLine().trim().toLowerCase().charAt(0);
-
-                System.out.println("Enter target row (1-8):");
-                try {
-                    targetRow = Integer.parseInt(scan.nextLine().trim());
-                } catch (NumberFormatException e) {
-                    System.out.println("Row must be a number, try again");
-                    continue;
-                }
-
-                // reuse within chessboard method
-                validTarget = Chessboard.withinChessboard(targetCol, targetRow);
-                if (!validTarget){
-                    System.out.println("That position is off the board, try again");
-                }
-            }
-
             // use same position from chessboard to check moves
-            if (Chessboard.samePosition(current.getColumn(), current.getRow(), targetCol, targetRow)){
-                System.out.println("Piece did not move, invalid move");
-                continue;
-            }
+            boolean samePosition=Chessboard.samePosition(current.getColumn(), current.getRow(), targetCol, targetRow);
 
             // late binding, java calls the isValid method on the chesspiece and figures out which version to use
             boolean result = current.isValid(targetCol, targetRow);
 
-            if (result){
-                System.out.println("Valid move!");
+            if (result && !samePosition){
+                System.out.println(current.getPieceName() + " at " + current.getColumn() + "," + current.getRow() + " can move to " + targetCol + "," + targetRow);
             } else {
-                System.out.println("Invalid move.");
+                System.out.println(current.getPieceName() + " at " + current.getColumn() + "," + current.getRow() + " can NOT move to " + targetCol + "," + targetRow);
             }
         }
 
