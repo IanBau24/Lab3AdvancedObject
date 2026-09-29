@@ -4,10 +4,10 @@
  * 
  * @author Ian Bautista
  * @version 1.0.0
- * @since 22026-09-22
+ * @since 2026-09-22
  */
 public class Enums {
-    enum PieceType{
+    public enum PieceType{
         KING,
         QUEEN,
         ROOK,
@@ -16,7 +16,7 @@ public class Enums {
         PAWN
     }
     
-    enum locationX{
-        a,b,c,d,e,f,g,h
+    public enum LocationX{
+        A,B,C,D,E,F,G,H
     }
 }
