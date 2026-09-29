@@ -41,6 +41,7 @@ public class Runner{
                     if (piece!=null && array[j].getPieceName().toUpperCase()==piece.name()){
                         repeatedPiece=true;
                         System.out.println("You have already included the " + piece.name().toLowerCase() + " chess piece. Please select another piece you have not selected already.");
+                        piece=null;
                         break;
                     }
                 }
