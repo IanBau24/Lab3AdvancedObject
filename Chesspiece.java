@@ -1,4 +1,3 @@
-
 /**
  * Abstract class with some implementation to inherit to all chess pieces
  * 
@@ -9,32 +8,31 @@
  * Change Log:
  * 2026-09-19 - Initialized class and left skeletion
  * 2026-09-22 - Finished implementation, left abstract is valid method
- * 2026-09-29 - Finalized Comments
+ * 2026-09-29 - Refactor Chesspiece to use Enums for position
  */
 abstract class Chesspiece {
     protected String pieceName;
     protected String color;
-    protected char posX;
+    protected Enums.LocationX posX;
     protected int posY;
 
-    //Default constructor
     public Chesspiece() {
     }
 
-    //Constructor with parameters
-    public Chesspiece(String pieceName, String color, char col, int row){
+
+    public Chesspiece(String pieceName, String color, Enums.LocationX col, int row){
         this.pieceName = pieceName;
         this.color = color;
         this.posX = col;
         this.posY = row;
     }
 
-    // Setters and getters that will be inherited by the child classes.
+    // Getters and setters that will be inherited by child classes.
     public String getPieceName(){
         return this.pieceName;
     }
 
-    public char getColumn(){
+    public Enums.LocationX getColumn(){
         return this.posX;
     }
 
@@ -46,7 +44,7 @@ abstract class Chesspiece {
         return this.color;
     }
 
-    public void setColumn(char posX){
+    public void setColumn(Enums.LocationX posX){
         this.posX=posX;
     }
 
@@ -54,6 +52,6 @@ abstract class Chesspiece {
         this.posY=posY;
     }
 
-    // Abstract method that will be overriden inside the child classes.
-    abstract boolean isValid(char newPosX, int newPosY);
+    //abstract method
+    abstract boolean isValid(Enums.LocationX newPosX, int newPosY);
 }
