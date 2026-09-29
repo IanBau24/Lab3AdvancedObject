@@ -2,13 +2,14 @@
 /**
  * Abstract class with some implementation to inherit to all chess pieces
  * 
- * @author Ian Bautista Ambriz
+ * @author Ian Bautista Ambriz & Ricardo Carranza
  * @version 1.0.0
  * @since 2026-09-19
  * 
  * Change Log:
  * 2026-09-19 - Initialized class and left skeletion
  * 2026-09-22 - Finished implementation, left abstract is valid method
+ * 2026-09-29 - Finalized Comments
  */
 abstract class Chesspiece {
     protected String pieceName;
@@ -16,10 +17,11 @@ abstract class Chesspiece {
     protected char posX;
     protected int posY;
 
+    //Default constructor
     public Chesspiece() {
     }
 
-
+    //Constructor with parameters
     public Chesspiece(String pieceName, String color, char col, int row){
         this.pieceName = pieceName;
         this.color = color;
@@ -27,7 +29,7 @@ abstract class Chesspiece {
         this.posY = row;
     }
 
-    // let me know if this is how we are supposed to inherit all the setters and getters
+    // Setters and getters that will be inherited by the child classes.
     public String getPieceName(){
         return this.pieceName;
     }
@@ -52,5 +54,6 @@ abstract class Chesspiece {
         this.posY=posY;
     }
 
+    // Abstract method that will be overriden inside the child classes.
     abstract boolean isValid(char newPosX, int newPosY);
 }
