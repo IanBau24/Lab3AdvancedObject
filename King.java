@@ -9,6 +9,7 @@
  * @since 22026-09-26
  * Updates: 2026-09-19 King Skeleton
  *          2026-09-26 Updated King skeleton and inhertiance
+            2026-09-29 Refactor Enums variable type for posX
  */
 public class King extends Queen{
     /**
