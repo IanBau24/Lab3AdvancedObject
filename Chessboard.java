@@ -14,18 +14,18 @@ public class Chessboard {
     // leave the constants as static so they can be referenced inside of the method
     private static final int MAX_ROW = 8;
     private static final int MIN_ROW = 1;
-    private static final char MIN_COL = 'a';
-    private static final char MAX_COL = 'h';
+    private static final Enums.LocationX MIN_COL = Enums.LocationX.A;
+    private static final Enums.LocationX MAX_COL = Enums.LocationX.H;
 
 	// Returns true if a given position is valid. False otherwise.
-    public static boolean withinChessboard(char col, int row){
-        // col has char comparisson, row uses the constants
-		return ((col<=MAX_COL && col>=MIN_COL) && (row>=MIN_ROW && row<=MAX_ROW));
+    public static boolean withinChessboard(Enums.LocationX col, int row){
+        // col has Enums.LocationX comparisson, row uses the constants
+		return (col!=null)&&(row>=MIN_ROW && row<=MAX_ROW);
     }
 
     // returns true if two coordiantes are the same position, used to check if pieces remain in the same place
-    public static boolean samePosition(char col, int row, char newCol, int newRow){
+    public static boolean samePosition(Enums.LocationX col, int row, Enums.LocationX newCol, int newRow){
         // return true only if both row and column are the same
-        return (col == newCol && row == newRow);
+        return (col.ordinal() == newCol.ordinal() && row == newRow);
     }
 }
