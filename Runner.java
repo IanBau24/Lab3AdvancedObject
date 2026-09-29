@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
-
+/**
+ * Holds the chess piece object, constructor, attributes, setters and getters, valid check
+ * 
+ * @author Ian Bautista Ambriz
+ * @version 1.0.0
+ * @since 2026-09-19
+ * 
+ * Change Log:
+ * 2026-09-19 - Set up class and did skeleton
+ * 2026-09-22 - Worked on simple implementations without error handling
+ * 2026-09-28 - Finished error handling and looping
+ */
 public class Runner{
     public static void readUser(){
         Scanner scan = new Scanner(System.in);
@@ -135,7 +146,7 @@ public class Runner{
         scan.close();
     }
 
-
+    // Main runner method just calls user input
     public static void main(String[] args){
         readUser();
     }
