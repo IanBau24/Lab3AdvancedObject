@@ -7,7 +7,7 @@
  * 
  * Change Log:
  * 2026-09-22 - Set up class reusing the code from lab 2
- * Refactor Chessboard to use Enums for columns
+ * 2026-09-29 - Refactor Chessboard to use Enums for columns
  */
 public class Chessboard {
     // * copied the code from the previous lab since functionality should be same
